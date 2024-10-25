@@ -64,8 +64,6 @@ void init_wifi(const char *ssid, const char *password, bool init_nvs) {
   esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP,
                                       &wifi_event_handler, NULL,
                                       &instance_got_ip);
-  xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-
   wifi_config_t wifi_config = {.sta = {.ssid = {},
                                        .password = {},
                                        .threshold = {
